@@ -7,6 +7,7 @@ describe Lamb do
     it "has a boolean is_silent" do
 
       lamb = Lamb.new
+      lamb.save
       expect( lamb.is_silent ).to be
 
     end

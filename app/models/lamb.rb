@@ -2,9 +2,7 @@ class Lamb < ActiveRecord::Base
   attr_accessible :is_silent
 
   after_create do
-    set_default do
-      self.is_silent = true
-    end
+      self.is_silent = self.is_silent || true
   end
 
 end

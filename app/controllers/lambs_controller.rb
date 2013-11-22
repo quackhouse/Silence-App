@@ -5,6 +5,7 @@ class LambsController < ApplicationController
 
   def create
     @lamb = Lamb.new
+    # @lamb.is_silent = true
     @lamb.save
 
     respond_to do |format|
@@ -17,8 +18,8 @@ class LambsController < ApplicationController
 
     id = params[:id].to_i
     @lamb = Lamb.where(id: id).first
-    @lamb.is_silent = false
-    # binding.pry
+    @lamb.update_attributes!(is_silent: false)
+    @lamb.reload
 
     respond_to do |format|
       format.html { redirect_to "lambs/#{@lamb.id}" }
